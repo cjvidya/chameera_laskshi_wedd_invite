@@ -1,206 +1,11 @@
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f4f8fa; /* Soft, elegant light blue-grey background */
-  text-align: center;
-  color: #2c3e50;
-  overflow-x: hidden;
-}
-
-/* TYPOGRAPHY */
-.navy-text {
-  color: #1b3a6b;
-}
-
-/* HERO HEADER (Tailored for mobile height) */
-header {
-  position: relative;
-  min-height: auto; /* Changed from 100vh to avoid large empty space below mobile screen */
-  background: linear-gradient(135deg, #f7fafd 0%, #eef5fc 50%, #e1ecf7 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 15px 25px 15px; /* Tighter padding for mobile */
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-/* Decorative Floral Corners (Scaled down for mobile screens) */
-header::before, header::after {
-  content: '❀';
-  position: absolute;
-  font-size: 80px; /* Reduced from 120px */
-  color: rgba(208, 225, 253, 0.3);
-  font-family: serif;
-  line-height: 1;
-  pointer-events: none;
-}
-header::before { top: -15px; left: -15px; transform: rotate(45deg); }
-header::after { bottom: -15px; right: -15px; transform: rotate(225deg); }
-
-.header-container {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-  gap: 20px; /* Reduced layout gap */
-  max-width: 1200px;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .header-container {
-    flex-direction: row;
-    text-align: left;
-    justify-content: space-around;
-    gap: 40px;
-  }
-}
-
-.header-content {
-  max-width: 550px;
-  z-index: 2;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 1.2s forwards ease-out;
-}
-
-.image-container {
-  position: relative;
-  z-index: 2;
-  opacity: 0;
-  transform: scale(0.9);
-  animation: scaleIn 1.2s 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-illustration {
-  width: 85%; /* Slightly narrowed for a clean frame on tiny devices */
-  max-width: 320px;
-  height: auto;
-  filter: drop-shadow(0 10px 20px rgba(27, 58, 107, 0.12)); 
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes scaleIn {
-  to { opacity: 1; transform: scale(1); }
-}
-
-.intro-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 32px; /* Balanced mobile size */
-  color: #1b3a6b;
-  margin-bottom: 5px;
-}
-
-.names {
-  font-family: 'Great Vibes', cursive;
-  font-size: 52px; /* Balanced so titles do not split awkwardly into multi-lines */
-  margin: 5px 0 15px 0;
-  line-height: 1.1;
-  background: linear-gradient(90deg, #0B3D91, #4169E1, #8bb8ff, #4169E1, #0B3D91);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: royalShine 6s linear infinite, glowPulse 3s ease-in-out infinite;
-  text-shadow: 0 0 10px rgba(65, 105, 225, .3);
-}
-
-@keyframes royalShine { to { background-position: 300% center; } }
-@keyframes glowPulse { 50% { filter: drop-shadow(0 0 10px rgba(65, 105, 225, .6)); } }
-
-.request-text {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #64748b;
-  margin-bottom: 20px;
-  font-weight: 500;
-  padding: 0 10px;
-}
-
-.date-badge {
-  font-size: 14px;
-  letter-spacing: 1.5px;
-  border-top: 1px solid rgba(27, 58, 107, 0.15);
-  border-bottom: 1px solid rgba(27, 58, 107, 0.15);
-  padding: 10px 0;
-  display: inline-block;
-  width: 90%;
-  font-weight: 600;
-  color: #1b3a6b;
-}
-
-/* FLOATING FLORAL ELEMENTS */
-.floating-flower {
-  position: absolute;
-  color: #b0cbee;
-  font-size: 18px;
-  pointer-events: none;
-  opacity: 0;
-  animation: floatFlowers 14s linear infinite;
-}
-@keyframes floatFlowers {
-  0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-}
-
-/* LIVE COUNTDOWN DASHBOARD */
-.countdown-container {
-  display: flex;
-  gap: 10px; /* Snug spacing for small width containers */
-  margin-top: 25px;
-  justify-content: center;
-}
-@media (min-width: 768px) {
-  .countdown-container { justify-content: flex-start; }
-}
-
-.time-box {
-  background: #ffffff;
-  border: 1px solid rgba(27, 58, 107, 0.08);
-  padding: 10px 8px;
-  border-radius: 10px;
-  min-width: 60px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(27, 58, 107, 0.05);
-}
-
-.time-box span {
-  display: block;
-  font-size: 20px;
-  font-weight: 600;
-  color: #1b3a6b;
-  font-variant-numeric: tabular-nums;
-}
-
-.time-box label {
-  display: block;
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #8a9ba8;
-  margin-top: 2px;
-  font-weight: 500;
-}
-
 /* SECTIONS (Strict Mobile Optimization) */
 section {
-  padding: 35px 15px; /* Clean, compact spacing drops vertical stack heights */
+  padding: 20px 15px; /* Dropped padding to absolute minimum */
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto !important; /* Forces removal of accidental layout overlaps */
   opacity: 0;
-  transform: translateY(20px); /* Tighter shift to prevent empty white gaps during scroll */
-  transition: 0.8s all cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(10px); /* Keeps movement minimal to eliminate void gaps */
+  transition: 0.5s opacity ease-out, 0.5s transform ease-out; /* Snappier animation */
   box-sizing: border-box;
 }
 
@@ -210,10 +15,11 @@ section.show {
 }
 
 h2 {
-  font-size: 22px; /* Balanced title size */
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: 2px;
-  margin-bottom: 25px; /* Reduced spacing inside section headers */
+  margin-top: 0; /* REMOVES default top push */
+  margin-bottom: 15px; /* Compressed heading space */
   text-transform: uppercase;
   color: #1b3a6b;
 }
@@ -223,15 +29,21 @@ h2::after {
   display: block;
   font-size: 16px;
   color: #d4af37;
-  margin: 6px auto 0 auto;
+  margin: 4px auto 0 auto;
   font-family: serif;
+}
+
+/* Eliminate default block text pushing sections away */
+section p {
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
 }
 
 /* EVENTS CARDS */
 .event-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px; /* Closer card stack formatting */
   align-items: center;
   width: 100%;
 }
@@ -239,13 +51,12 @@ h2::after {
 .event-box {
   background: #ffffff;
   border: 1px solid rgba(27, 58, 107, 0.06);
-  padding: 20px; /* Snug internal item box padding */
+  padding: 18px; 
   width: 100%;
   max-width: 500px;
   border-radius: 16px;
   text-align: left;
   box-sizing: border-box;
-  transition: transform 0.3s ease, border-color 0.3s ease;
   box-shadow: 0 8px 25px rgba(27, 58, 107, 0.03);
 }
 
@@ -254,11 +65,11 @@ h2::after {
   color: #d4af37;
   font-size: 13px;
   letter-spacing: 0.5px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .event-title {
-  font-size: 18px;
+  font-size: 17px;
   color: #1b3a6b;
   font-weight: 600;
 }
@@ -266,8 +77,8 @@ h2::after {
 .event-venue {
   font-size: 13px;
   color: #64748b;
-  margin-top: 6px;
-  line-height: 1.4;
+  margin-top: 4px;
+  line-height: 1.3;
 }
 
 /* CALENDAR */
@@ -276,146 +87,18 @@ h2::after {
   margin: 0 auto;
   background: #ffffff;
   border: 1px solid rgba(27, 58, 107, 0.06);
-  padding: 20px;
+  padding: 15px; /* Trimmed inner card box */
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(27, 58, 107, 0.04);
   box-sizing: border-box;
 }
 
-.calendar-header {
-  font-weight: 600;
-  color: #1b3a6b;
-  margin-bottom: 15px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-size: 14px;
-}
-
-.calendar-days, .calendar-dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  font-size: 13px;
-}
-
-.calendar-days div {
-  font-weight: 600;
-  color: #8fa0b0;
-  padding-bottom: 5px;
-}
-
-.calendar-dates div {
-  padding: 8px 0;
-  color: #475569;
-  font-weight: 400;
-}
-
-.highlight {
-  background: linear-gradient(135deg, #1b3a6b, #2a5298);
-  color: #ffffff !important;
-  border-radius: 50%;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(27, 58, 107, 0.25);
-}
-
-/* MAP */
+/* MAP AND FRAME FIXES */
 iframe {
+  display: block; /* Removes baseline text inline height bugs */
+  margin: 0 auto;
   border-radius: 20px;
   border: 3px solid #ffffff;
   box-shadow: 0 8px 25px rgba(27, 58, 107, 0.06);
-  height: 280px; /* Reduced map height so it fits small mobile screens gracefully */
-}
-
-/* GALLERY */
-.gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.gallery img {
-  width: 100%;
-  max-width: 320px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 3px solid #ffffff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-}
-
-/* BUTTONS */
-.btn {
-  background: linear-gradient(45deg, #1b3a6b, #2a5298);
-  color: #ffffff;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: block; /* Stack buttons nicely vertically on small widths */
-  margin: 10px auto;
-  max-width: 280px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(27, 58, 107, 0.15);
-  box-sizing: border-box;
-}
-
-.btn-secondary {
-  background: #ffffff;
-  color: #1b3a6b;
-  border: 1px solid rgba(27, 58, 107, 0.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
-
-/* FLOATING WHATSAPP BUTTON */
-.floating {
-  position: fixed;
-  bottom: 20px; /* Brought closer to corner */
-  right: 20px;
-  background: #25D366;
-  color: white;
-  width: 50px; /* Scaled down slightly for mobile layout thumb-safety */
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  text-decoration: none;
-  font-size: 22px;
-  z-index: 99;
-}
-
-/* FOOTER */
-footer {
-  background: #ffffff;
-  color: #8fa0b0;
-  padding: 30px 15px;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border-top: 1px solid rgba(27, 58, 107, 0.05);
-}
-
-/* DESKTOP ENHANCEMENTS (Keeps layout beautiful if viewed on big screens) */
-@media (min-width: 768px) {
-  header {
-    min-height: 100vh;
-    padding: 60px 20px;
-  }
-  .hero-illustration { width: 100%; }
-  .intro-text { font-size: 38px; }
-  .names { font-size: 75px; }
-  .request-text { font-size: 13px; }
-  .date-badge { font-size: 16px; }
-  .time-box { min-width: 70px; padding: 12px; }
-  .time-box span { font-size: 26px; }
-  section { padding: 50px 20px; }
-  h2 { font-size: 26px; }
-  iframe { height: 380px; }
-  .btn { display: inline-block; margin: 10px; }
+  height: 250px; /* Reduced to snap view closely to text rules above it */
 }
