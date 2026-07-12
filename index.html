@@ -154,7 +154,7 @@ updateCountdown();
 // SCROLL OBSERVATION TRIGGER
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("show"); });
-}, { threshold: 0.15 });
+}, { threshold: 0.05 });
 document.querySelectorAll("section").forEach(sec => sectionObserver.observe(sec));
 
 // MODAL WINDOW INTERACTION
