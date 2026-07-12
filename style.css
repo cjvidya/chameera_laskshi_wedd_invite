@@ -31,7 +31,7 @@ header {
 
 /* Decorative Floral Corners */
 header::before, header::after {
-  content: '❀';
+  content: '🪷';
   position: absolute;
   font-size: 120px;
   color: rgba(208, 225, 253, 0.4);
@@ -184,7 +184,7 @@ header::after { bottom: -20px; right: -20px; transform: rotate(225deg); }
 
 /* SECTIONS */
 section {
-  padding: 100px 20px;
+  padding: 50px 20px;
   max-width: 800px;
   margin: 0 auto;
   opacity: 0;
