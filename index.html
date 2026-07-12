@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chameera & Lakshika Wedding</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <!-- Beautiful Floating Watercolor Petal Effects -->
+  <div class="floating-flower" style="left:12%; animation-delay:0s">❀</div>
+  <div class="floating-flower" style="left:30%; animation-delay:4s">🍃</div>
+  <div class="floating-flower" style="left:70%; animation-delay:2s">❀</div>
+  <div class="floating-flower" style="left:88%; animation-delay:6s">🍃</div>
+
+  <div class="header-container">
+    <div class="header-content">
+      <div class="intro-text">The Wedding of</div>
+      <h1 class="names">Chameera & Lakshika</h1>
+
+      <div class="request-text">Warmly request the honour of your presence</div>
+      <div id="guestName" class="navy-text" style="font-weight: 600; font-size: 18px; margin-bottom: 35px; min-height: 27px; letter-spacing: 0.5px;"></div>
+      
+      <div class="date-badge">2026 AUGUST 14 • FRIDAY</div>
+      
+      <!-- Live Dynamic Countdown Dashboard -->
+      <div class="countdown-container">
+        <div class="time-box"><span id="cd-days">00</span><label>Days</label></div>
+        <div class="time-box"><span id="cd-hours">00</span><label>Hours</label></div>
+        <div class="time-box"><span id="cd-mins">00</span><label>Mins</label></div>
+        <div class="time-box"><span id="cd-secs">00</span><label>Secs</label></div>
+      </div>
+    </div>
+
+    <!-- Transparent portrait rendering for 37030.png -->
+    <div class="image-container">
+      <img src="37030.png" class="hero-illustration" alt="Chameera & Lakshika Illustration">
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>Save the Date</h2>
+  <div class="calendar">
+    <div class="calendar-header" id="monthYear"></div>
+    <div class="calendar-days">
+      <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+    </div>
+    <div id="calendarDates" class="calendar-dates"></div>
+  </div>
+</section>
+<section>
+  <h2>Location</h2>
+
+  <p style="color:#64748b; margin-bottom:30px; font-size:20px; line-height:1.8;">
+    <strong>Hotel Green Court Homagama</strong><br>
+
+    <span style="color:#d4af37; font-size:18px; font-weight:600;">
+      Emperors Court - 4th Floor
+    </span><br><br>
+
+    <span style="font-size:17px; color:#475569;">
+      📍 <strong>Address:</strong><br>
+      610 Galawila Rd,<br>
+      Homagama
+    </span>
+  </p>
+
+  <iframe
+    src="https://maps.google.com/maps?q=Hotel%20Green%20Court%20Homagama&output=embed"
+    width="100%"
+    height="380"
+    allowfullscreen
+    loading="lazy">
+  </iframe>
+</section>
+<section>
+  <h2>Event Details</h2>
+  <div class="event-container">
+    <div class="event-box">
+      <div class="event-time">09:30 AM</div>
+      <div class="event-title">Welcome Reception</div>
+      <div class="event-venue">Hotel Green Court, Homagama</div>
+    </div>
+    <div class="event-box">
+      <div class="event-time">10:00 AM</div>
+      <div class="event-title">Poruwa Ceremony</div>
+      <div class="event-venue">Emperors Court - 4th Floor</div>
+    </div>
+    <div class="event-box">
+      <div class="event-time">12:30 PM onwards</div>
+      <div class="event-title">Wedding Lunch Buffet</div>
+      <div class="event-venue">Emperors Court - 4th Floor</div>
+    </div>
+    <div class="event-box">
+      <div class="event-time">02:30 PM onwards</div>
+      <div class="event-title">Music, Dance & Celebration</div>
+      <div class="event-venue">Emperors Court - 4th Floor</div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <h2>RSVP</h2>
+  <p style="font-size:14px; color:#64748b; margin-bottom:30px; letter-spacing: 0.5px;">Please kindly respond by interacting with the options below</p>
+  <div style="max-width: 500px; margin: 0 auto;">
+    <a class="btn" href="https://forms.gle/egLU2bwXP1XKTkTz7" target="_blank">RSVP Online Form</a>
+    <div style="margin: 20px 0; color: #8fa0b0; font-size: 11px; letter-spacing: 2px; font-weight:600;">OR DIRECT CONNECT</div>
+    <a class="btn btn-secondary" id="waLakshika" target="_blank">WhatsApp Lakshika</a>
+    <a class="btn btn-secondary" id="waChameera" target="_blank">WhatsApp Chameera</a>
+  </div>
+</section>
+
+<footer>
+  Thank you • Chameera & Lakshika
+</footer>
+
+<!-- Floating Chat Shortcut linked to Chameera -->
+<a id="floatWA" class="floating" target="_blank">💬</a>
+
+<script>
+// LIVE REAL-TIME COUNTDOWN 
+const eventTimestamp = new Date("August 14, 2026 09:00:00").getTime();
+
+const updateCountdown = () => {
+  const rightNow = new Date().getTime();
+  const timeDifference = eventTimestamp - rightNow;
+  
+  if (timeDifference > 0) {
+    const days = Math.floor(timeDifference / 86400000);
+    const hours = Math.floor((timeDifference % 86400000) / 3600000);
+    const minutes = Math.floor((timeDifference % 3600000) / 60000); 
+    const seconds = Math.floor((timeDifference % 60000) / 1000);
+    
+    document.getElementById("cd-days").innerText = days < 10 ? "0" + days : days;
+    document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
+    document.getElementById("cd-mins").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("cd-secs").innerText = seconds < 10 ? "0" + seconds : seconds;
+  } else {
+    document.querySelector(".countdown-container").innerHTML = "<p style='color:#1b3a6b; font-weight:600; letter-spacing:1px;'>Today is the Special Day!</p>";
+  }
+};
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// SCROLL OBSERVATION TRIGGER
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("show"); });
+}, { threshold: 0.15 });
+document.querySelectorAll("section").forEach(sec => sectionObserver.observe(sec));
+
+// MODAL WINDOW INTERACTION
+
+// PERSISTENT GUEST DATA INTERPRETATION
+const urlGuestName = new URLSearchParams(location.search).get("name");
+if (urlGuestName) {
+  document.getElementById("guestName").innerText = "Dear " + urlGuestName + ", you are warmly invited!";
+}
+
+// RESPONSIVE COMMUNICATION ARRAYS
+const uniformText = encodeURIComponent("Hi, I received your beautiful wedding invitation. Thank you so much for the invitation. I’m happy to confirm that I will be attending your special day ♥️.");
+document.getElementById("waLakshika").href = `https://wa.me/+94786891427?text=${uniformText}`;
+document.getElementById("waChameera").href = `https://wa.me/+94775713666?text=${uniformText}`;
+document.getElementById("floatWA").href = `https://wa.me/+94775713666?text=${uniformText}`;
+
+// AUTO CALENDAR GENERATION INTERACTION
+const staticWeddingDate = new Date("August 14, 2026");
+const targetedMonth = staticWeddingDate.getMonth(), targetedYear = staticWeddingDate.getFullYear();
+const startingDayOfWeek = new Date(targetedYear, targetedMonth, 1).getDay();
+const daysInTheMonth = new Date(targetedYear, targetedMonth + 1, 0).getDate();
+const monthLabels = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+document.getElementById("monthYear").innerText = monthLabels[targetedMonth] + " " + targetedYear;
+
+const calContainer = document.getElementById("calendarDates");
+for (let skip = 0; skip < startingDayOfWeek; skip++) {
+  calContainer.innerHTML += "<div></div>";
+}
+for (let currentDay = 1; currentDay <= daysInTheMonth; currentDay++) {
+  if (currentDay === staticWeddingDate.getDate()) {
+    calContainer.innerHTML += `<div class="highlight">${currentDay}</div>`;
+  } else {
+    calContainer.innerHTML += `<div>${currentDay}</div>`;
+  }
+}
+</script>
+
+</body>
+</html>
