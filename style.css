@@ -31,7 +31,7 @@ header {
 
 /* Decorative Floral Corners */
 header::before, header::after {
-  content: '💠';
+  content: '';
   position: absolute;
   font-size: 120px;
   color: rgba(208, 225, 253, 0.4);
