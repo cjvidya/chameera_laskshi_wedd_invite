@@ -118,7 +118,7 @@ header::after { bottom: -20px; right: -20px; transform: rotate(225deg); }
   font-family: 'Great Vibes', cursive;
   font-size: 75px;
   margin: 10px 0 25px 0;
-  line-height: 1.1;
+  line-height: 1.3;
 }
 
 .request-text {
